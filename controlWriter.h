@@ -23,6 +23,7 @@ void update(int power, float angle) {
   double delta = time.Now - this.old;
   double normalizedPwr = power / delta
   PowerMapping x = new PowerMapping([normalzedPwr, nPwr > 0 ? 1 : 0, null, null]);
-  this.engine.pwmWrite(normalizedPwr, x);
+  this.engine.pwmWrite(normalizedPwr, pins.ENGINE_PWM);
+  this.steering.write();
   this.old = time.Now();
 }
